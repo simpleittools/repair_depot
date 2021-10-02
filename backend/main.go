@@ -5,6 +5,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/template/html"
 	"github.com/simpleittools/repair_depot/backend/config"
+	"github.com/simpleittools/repair_depot/backend/routes"
 	"log"
 )
 
@@ -33,11 +34,12 @@ func main() {
 	app := fiber.New(fiber.Config{
 		Views: engine,
 	})
-	app.Get("/", func(c *fiber.Ctx) error {
-		return c.Render("index", fiber.Map{
-			"Title": "Confirming",
-		}, "layouts/main")
-	})
+
+	routes.Routing(app)
+	app.Static(
+		"/",
+		"./static",
+	)
 	fmt.Println(fmt.Sprintf("Starting application, available at http://localhost%s", PORT))
 	log.Fatal(app.Listen(PORT))
 
