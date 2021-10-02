@@ -34,7 +34,9 @@ func main() {
 		Views: engine,
 	})
 	app.Get("/", func(c *fiber.Ctx) error {
-		return c.SendString("Hello, World!")
+		return c.Render("index", fiber.Map{
+			"Title": "Confirming",
+		}, "layouts/main")
 	})
 	fmt.Println(fmt.Sprintf("Starting application, available at http://localhost%s", PORT))
 	log.Fatal(app.Listen(PORT))
