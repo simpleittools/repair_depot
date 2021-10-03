@@ -21,23 +21,7 @@
         <a class="navbar-item">
           Documentation
         </a>
-<!--        todo: change this to https://javascript.plainenglish.io/how-to-set-up-a-dropdown-navbar-router-with-vuejs-6e0ef48625f6-->
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">
-            Manage
-          </a>
-          <div class="navbar-dropdown">
-            <router-link :to="{name: 'Clients'}" class="navbar-item">Client Management</router-link>
-            <a class="navbar-item" href="/clients">
-              Device Management
-            </a>
-            <hr class="navbar-divider">
-            <a class="navbar-item">
-              Add Job
-            </a>
-          </div>
-        </div>
-
+        <ManagementNav />
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link">
             Dashboard
@@ -94,8 +78,12 @@
 
 
 <script>
+import ManagementNav from "@/components/navbar/dropdowns/ManagementNav";
 export default {
-  name: "Navbar"
+  name: "Navbar",
+  components: {
+    ManagementNav
+  }
 }
 </script>
 
