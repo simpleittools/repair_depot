@@ -1,4 +1,5 @@
 @tailwind base;
+
 @tailwind components;
 
 .form-input {
@@ -12,4 +13,5 @@
 .tab-selected {
     @apply border-l border-t border-r rounded-t border-gray-400 text-blue-700 font-bold;
 }
+
 @tailwind utilities;
